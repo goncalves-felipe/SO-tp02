@@ -32,14 +32,14 @@ void sortPtable() {
   for (i = ptable.proc; i < &ptable.proc[NPROC]; i++) {
     index = i;
     for (j = i + 1; j < &ptable.proc[NPROC]; j++) {
-      if (ptable.proc[j]->burstTime < ptable.proc[index]->burstTime) {
+      if (j->burstTime < index->burstTime) {
         index = j;
       }
     }
 
-    int temp = ptable.proc[i];
-    ptable.proc[i] = ptable.proc[index];
-    ptable.proc[index] = temp;
+    int temp = i;
+    i = index;
+    index = temp;
   }
 }
 
