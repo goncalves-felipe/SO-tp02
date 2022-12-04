@@ -89,3 +89,32 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+void
+sys_yield(void)
+{
+  yield();
+}
+
+void
+sys_wait2(int *retime, int *rutime, int *stime)
+{
+  wait2(retime, rutime, stime);
+}
+
+void
+sys_print_total(int n)
+{
+  print_total(n);
+}
+
+
+int
+sys_set_total(void)
+{
+  int n;
+
+  if(argint(0, &n) < 0)
+    return -1;
+    
+  return set_total(n);
+}
