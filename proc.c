@@ -37,7 +37,7 @@ void sortPtable() {
       }
     }
 
-    int temp = i;
+    struct proc *temp = i;
     i = index;
     index = temp;
   }
