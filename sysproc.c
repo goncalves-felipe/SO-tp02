@@ -111,10 +111,16 @@ sys_print_total(int n)
 int
 sys_set_total(void)
 {
-  int n;
+  int n, y, z;
 
   if(argint(0, &n) < 0)
     return -1;
-    
-  return set_total(n);
+
+  if(argint(1, &y) < 0)
+    return -1;
+
+  if(argint(2, &z) < 0)
+    return -1;
+
+  return set_total(n, y, z);
 }

@@ -2,7 +2,7 @@
 #include "user.h"
 int main(int argc, char *argv[])
 {
-    int nInt = 30;
+    int nInt = atoi(argv[1]);
     for (int i = 0; i < nInt; i++)
     {
         int pid = 0;
@@ -58,11 +58,6 @@ int main(int argc, char *argv[])
     if (getpid() % 3 == 2)
     {
         printf(1, "PID: %d IO-BOUND\n", getpid());
-    }
-
-    if (getpid() == 3)
-    {
-        set_total(nInt);
     }
 
     wait2(retime, rutime, stime);
