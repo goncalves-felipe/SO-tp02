@@ -27,19 +27,19 @@ extern void forkret(void);
 extern void trapret(void);
 
 void sortPtable() {
-  int i, j, index;
+  struct proc *i, *j, *index;
 
   for (i = ptable.proc; i < &ptable.proc[NPROC]; i++) {
     index = i;
-    for (j = i + 1; j < NPROC; j++) {
-      if (ptable[j]->burstTime < ptable[index]->burstTime) {
+    for (j = i + 1; j < &ptable.proc[NPROC]; j++) {
+      if (ptable.proc[j]->burstTime < ptable.proc[index]->burstTime) {
         index = j;
       }
     }
 
-    int temp = ptable[i];
-    ptable[i] = ptable[index];
-    ptable[index] = temp;
+    int temp = ptable.proc[i];
+    ptable.proc[i] = ptable.proc[index];
+    ptable.proc[index] = temp;
   }
 }
 
